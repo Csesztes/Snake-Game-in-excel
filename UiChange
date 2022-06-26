@@ -1,0 +1,52 @@
+Option Explicit
+Dim container As Boolean
+
+Sub UItoggleoff()
+
+    With Application
+        container = .ScreenUpdating = False
+        .Calculation = xlCalculationManual
+        .DisplayStatusBar = False
+        .DisplayScrollBars = False
+        .ExecuteExcel4Macro "Show.toolbar(""Ribbon"",False)"
+        .DisplayFormulaBar = False
+    End With
+    
+    With ActiveWindow
+        .DisplayHeadings = False
+        .DisplayGridlines = False
+        .DisplayHorizontalScrollBar = False
+        .DisplayRuler = False
+        .DisplayVerticalScrollBar = False
+        .DisplayWorkbookTabs = False
+    End With
+    
+End Sub
+Sub UItoggle()
+            With Application
+           container = .ScreenUpdating = True
+            .Calculation = xlCalculationManual
+            .DisplayStatusBar = True
+            .DisplayScrollBars = True
+            .ExecuteExcel4Macro "Show.toolbar(""Ribbon"",True)"
+            .DisplayFormulaBar = True
+         End With
+         
+    With ActiveWindow
+        .DisplayHeadings = True
+        .DisplayGridlines = True
+        .DisplayHorizontalScrollBar = True
+        .DisplayRuler = True
+        .DisplayVerticalScrollBar = True
+        .DisplayWorkbookTabs = True
+    End With
+End Sub
+
+Sub Chose()
+    If container = True Then
+        UItoggleoff
+    Else
+        UItoggle
+   End If
+    
+End Sub
