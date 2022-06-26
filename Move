@@ -1,0 +1,49 @@
+Option Explicit
+
+
+Sub KeyBindings()
+  Application.OnKey "w", "Up"
+  Application.OnKey "s", "Down"
+  Application.OnKey "a", "Left"
+  Application.OnKey "d", "Right"
+End Sub
+
+Sub Up()
+    If vInc <> 1 Then
+    vInc = -1
+    hInc = 0
+    Movement
+    End If
+End Sub
+
+Sub Down()
+    If vInc <> -1 Then
+    vInc = 1
+    hInc = 0
+    Movement
+    End If
+End Sub
+
+Sub Left()
+    If hInc <> 1 Then
+    vInc = 0
+    hInc = -1
+    Movement
+    End If
+End Sub
+
+Sub Right()
+    If hInc <> -1 Then
+    vInc = 0
+    hInc = 1
+    Movement
+    End If
+End Sub
+
+Sub ClearBindings()
+  Application.OnKey "w"
+  Application.OnKey "S"
+  Application.OnKey "A"
+  Application.OnKey "D"
+End Sub
+
